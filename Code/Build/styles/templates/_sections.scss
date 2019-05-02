@@ -1,0 +1,219 @@
+section {
+	display: block;
+	position: relative;
+	width: 85%;
+	max-width: 990px;
+	margin: 0px auto 10px;
+	padding: 10px 20px 50px;
+
+	h2, h3 {
+		font-family: $primary_f;
+	}
+	h2 {
+		margin: 20px 0px 50px;
+		font-size: 32px;
+
+		body[data-theme="2"] & {
+			&:before {
+				opacity: $additional_content_opacity;
+				content: '<h2>';
+			}
+			&:after {
+				opacity: $additional_content_opacity;
+				content: '</h2>';
+			}
+		}
+	}
+	h3 {
+		margin: 10px 0px;
+		font-size: 26px;
+
+		body[data-theme="2"] & {
+			&:before {
+				opacity: $additional_content_opacity;
+				content: '<h3>';
+			}
+			&:after {
+				opacity: $additional_content_opacity;
+				content: '</h3>';
+			}
+		}
+	}
+
+	body[data-theme="2"] & p {
+		&:before {
+			opacity: $additional_content_opacity;
+			content: '<p>';
+		}
+		&:after {
+			opacity: $additional_content_opacity;
+			content: '</p>';
+		}
+	}
+	
+	ul {
+		padding: 0px 0px 0px 20px;
+		margin: 20px 0px 5px;
+
+		li {
+			& > * {
+				display: inline-block;
+			}
+			
+			h3 {
+				body[data-theme="2"] & {
+					&:before {
+						content: '';
+ 					}
+					&:after {
+						content: '';
+ 					}
+				}
+			}
+
+			.notes {
+				font-family: $primary_f;
+				padding-right: 10px;
+				&:before {
+					content: ' - ';
+					opacity: $additional_content_opacity;
+					display: inline;
+				}
+
+				@media screen and (max-width: 500px) {
+					& {
+						clear: both;
+						display: block;
+						width: 100%;
+					}
+				}
+			}
+
+			body[data-theme="2"] &:not([data-label]) {
+				&:before {
+					content: '<li>';
+					opacity: $additional_content_opacity;
+				}
+				&:after {
+					content: '</li>';
+					opacity: $additional_content_opacity;
+				}
+			}
+
+			&[data-label="js"] {
+				&:before {
+					content: 'console.log(\'';
+					opacity: $additional_content_opacity;
+				}
+				&:after {
+					content: '\')';
+					opacity: $additional_content_opacity;
+				}
+			}
+
+			&[data-label="html"] {
+				&:before {
+					content: '<li>';
+					opacity: $additional_content_opacity;
+				}
+				&:after {
+					content: '</li>';
+					opacity: $additional_content_opacity;
+				}
+			}
+
+			&[data-label="css"] {
+				&:before {
+					content: 'content: \'';
+					opacity: $additional_content_opacity;
+				}
+				&:after {
+					content: '\';';
+					opacity: $additional_content_opacity;
+				}
+			}
+
+			&[data-label="sass"] {
+				&:before {
+					content: 'content: \'';
+					opacity: $additional_content_opacity;
+				}
+				&:after {
+					content: '\'; font-family: cursive;';
+					opacity: $additional_content_opacity;
+				}
+			}
+
+			&[data-label="python"] {
+				&:before {
+					content: 'print (\'';
+					opacity: $additional_content_opacity;
+				}
+				&:after {
+					content: '\')';
+					opacity: $additional_content_opacity;
+				}
+			}
+		}
+	}
+
+	.secondary_list {
+		margin-top: 0;
+
+		& + .secondary_list{
+			margin-top: 20px;
+		}
+		
+		li:first-child {
+			list-style: none;
+			h3 {
+				margin-left: -20px;
+				position: relative;
+
+				@for $i from 1 through $number_of_themes {
+					$bol: nth($theme-backgrounds_dark, $i);
+					
+					body[data-theme="#{$i}"] & {
+						@include after_line($bol);
+					}
+				}
+			}
+		}
+	}
+	
+	#penCon {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin-bottom: 50px;
+		
+		& > * {
+			flex-grow: 1;
+			width: 75%;
+			margin-bottom: 20px;
+
+			@media screen and (max-width: 700px) {
+				 &,
+				 & > * {
+				 	height: 320px;
+				 }
+			}
+
+			@media screen and (max-width: 500px) {
+				 &,
+				 & > * {
+				 	height: 210px;
+				 }
+			}
+		}
+	}
+
+
+	@for $i from 1 through $number_of_themes {
+		$bol: nth($theme-backgrounds_dark, $i);
+		
+		body[data-theme="#{$i}"] & {
+			@include after_line($bol);
+		}
+	}
+}

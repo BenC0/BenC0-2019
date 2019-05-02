@@ -1,0 +1,84 @@
+header {
+	display: block;
+	text-align: center;
+	height: $header_h + 20;
+	position: fixed;
+	@media print {
+		position: relative;
+		left: 0;
+		width: 80%;
+		top: -60px;
+		margin-bottom: -60px;
+	}
+	top: 0px;
+	z-index: 9;
+	background-image: $primary_texture;
+	background-color: $white;
+	left: (100 - ((100% - 20 ) * .85)) / 2;
+	width: ((100% - 20 ) * .85);
+	margin: 0px auto 10px;
+	transition: $globalTransition;
+
+	@media screen and (max-width: 710px) {
+		& {
+			left: 100px;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		& {
+			left: 0;
+			width: 85%;
+			max-width: 990px;
+			position: relative;
+			margin-bottom: 20px;
+			padding: 10px 20px 50px;
+
+			@for $i from 1 through $number_of_themes {
+				$bol: nth($theme-backgrounds_dark, $i);
+				
+				body[data-theme="#{$i}"] & {
+					@include after_line($bol);
+				}
+			}
+		}
+	 }
+	
+	.logo {
+		display: flex;
+		justify-content: space-between;
+		color: $black;
+
+		font-family: $secondary_f;
+	    font-size: 45px;
+	    line-height: 70px;
+
+	    padding: 0px 20px 0px;
+	    position: relative;
+	    margin: 0;
+		
+		span {
+			
+		}
+	}
+
+	@for $i from 1 through $number_of_themes {
+		$theme-font: nth($theme-fonts, $i);
+		$theme-bg: nth($theme-backgrounds, $i);
+
+		body[data-theme="#{$i}"] & {
+			background-color: $theme-bg;
+			h1 {
+				color: $theme-font;
+			}
+		}
+	}
+
+	@for $i from 1 through $number_of_themes {
+		$bol: nth($theme-backgrounds_dark, $i);
+		
+		body[data-theme="#{$i}"] & {
+			@include after_line($bol);
+		}
+	}
+}

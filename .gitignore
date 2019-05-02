@@ -1,0 +1,6 @@
+**/Production
+**/node_modules
+**yarn.lock
+**package-lock.json
+
+**sublime-**
