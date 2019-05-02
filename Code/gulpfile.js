@@ -4,6 +4,7 @@ const babel = require('gulp-babel')
 const sass = require('gulp-sass')
 const runSequence = require('run-sequence')
 const browserSync = require('browser-sync').create()
+const gzip = require('gulp-gzip');
 
 const Prod = 'Production/'
 const Build = 'Build/'
@@ -18,6 +19,9 @@ gulp.task('babel', () => {
     .pipe(babel({
         presets: ['env']
     }))
+    // .pipe(gzip({
+    //   append: false
+    // }))
     .pipe(gulp.dest(Prod+'scripts/'))
 })
 
@@ -28,11 +32,17 @@ gulp.task('sass', () => {
         browsers: ['last 2 versions'],
         cascade: false
     }))
+    // .pipe(gzip({
+    //   append: false
+    // }))
     .pipe(gulp.dest(Prod+'styles/'))
 })
 
 gulp.task('html', () => {
   gulp.src(Build+'*.html')
+    // .pipe(gzip({
+    //   append: false
+    // }))
     .pipe(gulp.dest(Prod))
 })
 

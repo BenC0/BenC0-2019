@@ -36,6 +36,7 @@ $mini_b_h: 200px;
 	}
 
 	.theme {
+		position: relative;
 		float: left;
 		width: 48%;
 		display: block;
@@ -99,6 +100,24 @@ $mini_b_h: 200px;
 			text-align: center;
 			display: block;
 			float: left;
+			color: $black;
+
+			#SunsetSvg,
+			#Moon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 25%;
+				transform: translate(-50%,-50%);
+			}
+
+			#SunsetSvg {
+			  fill: $theme_1-font;
+			}
+
+			#Moon {
+			  fill: $theme_2-font;
+			}
 		}
 	
 		@for $i from 1 through $number_of_themes {

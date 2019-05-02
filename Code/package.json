@@ -4,7 +4,7 @@
   "description": "Benco",
   "main": "V1.js",
   "scripts": {
-    "test": "\"This is a test...\""
+    "start": "gulp watch"
   },
   "author": "Benji Cohen",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.0",
+    "gulp-gzip": "^1.4.2",
     "gulp-sass": "^3.1.0",
     "run-sequence": "^2.2.0"
   },
