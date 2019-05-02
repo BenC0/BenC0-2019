@@ -19,9 +19,6 @@ gulp.task('babel', () => {
     .pipe(babel({
         presets: ['env']
     }))
-    // .pipe(gzip({
-    //   append: false
-    // }))
     .pipe(gulp.dest(Prod+'scripts/'))
 })
 
@@ -32,18 +29,44 @@ gulp.task('sass', () => {
         browsers: ['last 2 versions'],
         cascade: false
     }))
-    // .pipe(gzip({
-    //   append: false
-    // }))
     .pipe(gulp.dest(Prod+'styles/'))
 })
 
 gulp.task('html', () => {
   gulp.src(Build+'*.html')
-    // .pipe(gzip({
-    //   append: false
-    // }))
     .pipe(gulp.dest(Prod))
+})
+
+gulp.task("gzip", () => {
+  gulp.src([
+      Build+'scripts/!node_modules',
+      Build+'scripts/!gulpfile.js',
+      Build+'scripts/*.js'
+    ])
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .pipe(gzip({
+      append: false
+    }))
+    .pipe(gulp.dest("gZip-"+Prod+'scripts/'))
+    
+  gulp.src(Build+'*.html')
+    .pipe(gzip({
+      append: false
+    }))
+    .pipe(gulp.dest("gZip-"+Prod))
+
+  gulp.src(Build+'styles/*.scss')
+    .pipe(sass())
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
+    .pipe(gzip({
+      append: false
+    }))
+    .pipe(gulp.dest("gZip-"+Prod+'styles/'))
 })
 
 gulp.task('build', () => {
