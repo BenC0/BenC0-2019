@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header/Header';
 import Menu from './Menu/Menu';
+import Content from './Content/Content';
 
 function App() {
 	const b = document.body
@@ -13,11 +14,12 @@ function App() {
 	} else {
 		b.setAttribute('data-theme', '1')
 	}
-	
+
 	return (
 		<div id="app">
 			<Header />
 			<Menu />
+			<Content />
 		</div>
 	);
 }
