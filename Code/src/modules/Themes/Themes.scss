@@ -1,0 +1,161 @@
+@import "../global";
+$mini_b_w: 100%;
+$mini_b_h: 200px;
+
+#themes {
+	position: fixed;
+	left: 10px;
+	top: 50%;
+	transform: translate(0%, -50%);
+	padding: 10px 0 0;
+	margin: 0;
+	text-align: center;
+	z-index: 11;
+
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.15s ease-in 0s;
+
+	max-width: 990px;
+	width: 60%;
+	list-style: none;
+	width: calc(100% - 150px);
+	max-height: calc(100% - 50px);
+	overflow: auto;
+
+	.title {
+		font-size: 42px;
+		margin-bottom: 20px;
+		color: $white;
+		font-family: $primary_f;
+	}
+
+	.showMenu & {
+		pointer-events: initial;
+		opacity: 1;
+		transition: all 0.35s ease-in 0.9s;
+	}
+
+	.theme {
+		position: relative;
+		float: left;
+		width: 48%;
+		display: block;
+		padding: 10px 10px;
+		background: $white;
+		box-shadow: $level--two;
+		margin: 10px 1%;
+
+		.miniBc {
+			float: left;
+			width: $mini_b_w;
+			display: block;
+			height: $mini_b_h;
+			position: relative;
+
+			&:after,
+			&:before {
+				content: "";
+				position: absolute;
+				z-index: 10;
+				width: $mini_b_w / 10;
+				box-sizing: border-box;
+				background: $black;
+			}
+			&:before {
+				top: 0;
+				left: 0;
+				height: $mini_b_h / 2;
+				border-top-right-radius: 100% 100%;
+				border-bottom-right-radius: 100% 100%;
+				box-shadow: 0px ($mini_b_h / 2) 0px 0px $black;
+				transition: all 0.9s cubic-bezier(0.71, -0.15, 0.09, 1.01);
+			}
+			&:after {
+				right: 0;
+				display: none;
+				top: 0;
+				bottom: 0;
+				border-top-left-radius: 150% 20%;
+				border-bottom-left-radius: 150% 20%;
+			}
+
+			@media screen and (max-width: 710px) {
+				& {
+					height: $mini_b_h / 2;
+
+					&:before {
+						height: $mini_b_h / 4;
+						box-shadow: 0px ($mini_b_h / 3) 0px 0px $black;
+						transition: all 0.9s cubic-bezier(0.71, -0.15, 0.09, 1.01);
+					}
+				}
+			}
+
+		}
+
+		.label {
+			font-size: 22px;
+			margin: 10px auto 0px;
+			width: 100%;
+			text-align: center;
+			display: block;
+			float: left;
+			color: $black;
+
+			#SunsetSvg,
+			#Moon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 25%;
+				transform: translate(-50%,-50%);
+			}
+
+			#SunsetSvg {
+			  fill: $theme_1-font;
+			}
+
+			#Moon {
+			  fill: $theme_2-font;
+			}
+		}
+	
+		@for $i from 1 through $number_of_themes {
+			$theme-font: nth($theme-fonts, $i);
+			$theme-bg: nth($theme-backgrounds, $i);
+			$theme-bg_dark: nth($theme-backgrounds_dark, $i);
+
+			&[data-theme="#{$i}"] .miniBc {
+				background-image: $primary_texture;
+				background-color: $theme-bg;
+				&:after,
+				&:before {
+					background-image: $primary_texture;
+					background-color: $theme-bg_dark;
+				}
+				&:before {
+					box-shadow: 0px ($mini_b_h / 2) 0px 0px $theme-bg_dark;
+				}
+
+				@media screen and (max-width: 710px) {
+					&:before {
+						box-shadow: 0px ($mini_b_h / 4) 0px 0px $theme-bg_dark;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		& {
+			transform: translate(0%, 0%);
+			top: 50px;
+		}
+		& .theme {
+			width: 100%;
+			margin: 0px 0px 10px;
+			float: left;
+		}
+	}
+}
