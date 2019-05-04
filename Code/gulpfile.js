@@ -70,7 +70,7 @@ gulp.task("gzip", () => {
 })
 
 gulp.task('build', () => {
-  runSequence(['sass', 'babel'])
+  runSequence(['sass', 'babel', 'html', 'gzip'])
 })
 
 gulp.task('watch', ['sass', 'html', 'babel'], () => {
