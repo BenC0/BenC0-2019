@@ -2,7 +2,6 @@ import React from "react";
 import './Themes.scss';
 import { ReactComponent as MoonSvg } from "./MoonSvg.svg"
 import { ReactComponent as SunsetSvg } from "./SunsetSvg.svg"
-import { MenuClick } from "../Menu/Menu"
 
 const w = window
 const b = document.body
