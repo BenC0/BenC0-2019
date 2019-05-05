@@ -4,7 +4,7 @@ import Menu from './Menu/Menu';
 import Content from './Content/Content';
 import DayNightSwitcher from './DayNightSwitcher/DayNightSwitcher';
 
-function App() {
+function Home() {
 	const b = document.body
 	const w = window
 
@@ -21,7 +21,7 @@ function App() {
 
 
 	return (
-		<div id="app">
+		<div id="Home">
 			<Header />
 			<Content />
 			<Menu />
@@ -30,4 +30,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;

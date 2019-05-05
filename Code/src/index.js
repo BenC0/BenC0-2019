@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import App from './modules/App';
+import Home from './modules/Home';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
@@ -11,7 +11,7 @@ const routing = (
 			<nav>
 				<Link to="/" className={(window.location.pathname === "/") ? "active" : ""}>Home</Link>
 			</nav>
-			<Route path="/" component={App} />
+			<Route path="/" component={Home} />
 		</div>
 	</Router>
 )
