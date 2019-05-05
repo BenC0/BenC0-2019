@@ -1,9 +1,30 @@
-**/Production
-**/gZip-Production
+# dependencies
 **/node_modules
-**yarn.lock
+**/.pnp
+**.pnp.js
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*yarn.lock
 **package-lock.json
 
+# Archived files
 **[ARCHIVE]**
 
+# sublime workspace/project files
 **sublime-**
+
+# testing
+**coverage
