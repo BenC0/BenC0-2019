@@ -13,9 +13,7 @@ header {
 		margin-bottom: -60px;
 	}
 	top: 0px;
-	z-index: 9;
-	background-image: $primary_texture;
-	background-color: $white;
+	z-index: 11;
 	left: (100 - ((100% - 20 ) * .85)) / 2;
 	width: ((100% - 20 ) * .85);
 	margin: 0px auto 10px;
@@ -58,9 +56,16 @@ header {
 		padding: 0px 20px 0px;
 		position: relative;
 		margin: 0;
-		
-		span {
-			
+	}
+
+	body[data-theme].showMenu & {
+		.logo {
+			transition: color $B-Transition--Timing;
+			color: $white;
+		}
+
+		@include after_line($white) {
+			transition: $B-Transition;
 		}
 	}
 
@@ -69,7 +74,6 @@ header {
 		$theme-bg: nth($theme-backgrounds, $i);
 
 		body[data-theme="#{$i}"] & {
-			background-color: $theme-bg;
 			h1 {
 				color: $theme-font;
 			}

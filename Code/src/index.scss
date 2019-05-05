@@ -56,9 +56,10 @@ body {
 		top: 0;
 		left: 0;
 		height: $b_h;
+		filter: drop-shadow(3px 0px 7px);
 		border-top-right-radius: 100% 100%;
 		border-bottom-right-radius: 100% 100%;
-		transition: all 0.9s cubic-bezier(0.71, -0.15, 0.09, 1.01);
+		transition: $B-Transition;
 		min-width: 100px;
 
 		@media screen and (max-width: 500px) {

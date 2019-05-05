@@ -36,6 +36,8 @@ $theme-fonts: $theme_1-font, $theme_2-font;
 $theme-links: $theme_1-link, $theme_2-link;
 
 $globalTransition: all 0.35s ease-in;
+$B-Transition--Timing: 0.9s cubic-bezier(0.71, -0.15, 0.09, 1.01);
+$B-Transition: all $B-Transition--Timing;
 
 $additional_content_opacity: .3;
 
@@ -49,5 +51,6 @@ $additional_content_opacity: .3;
 		background: $colour;
 		content: '';
 		border-radius: 30px;
+		@content;
 	}
 }
