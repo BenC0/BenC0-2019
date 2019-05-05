@@ -1,0 +1,77 @@
+$container_height: 50px;
+$container_width: 100px;
+$circle: 25px;
+$offset: ($container_height - $circle)/2;
+$icon_transition: all .2s ease-in;
+
+#dayNightSwitcher {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	width: $container_width;
+	height: $container_height;
+	border: 1px solid black;
+	border-radius: $container_height;
+	z-index: 100;
+	box-shadow: 0px 1px 4px rgba(0,0,0,.15),
+				0px 3px 2px rgba(0,0,0,.15);
+
+	.container {
+		display: block;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		position: absolute;
+		border: 1px solid black;
+		border-radius: $container_height;
+		
+		.icon {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: $icon_transition;
+			
+			.circle {
+				cursor: pointer;
+				overflow: hidden;
+				width: $circle;
+				height: $circle;
+				display: block;
+				border-radius: 100%;
+				margin-left: $offset;
+				margin-right: $offset;
+				transition: $icon_transition;
+				box-shadow: 0px 0px 0px 0px transparent inset;
+			}
+		}
+	}
+			
+	&[icon="sun"] {
+		.container {
+			background: #50b8e7;
+			.icon {
+				left: 0px;
+				filter: drop-shadow(0px 0px 10px yellow);
+				.circle {
+					float: left;
+					background: yellow;
+				}
+			}
+		}
+	}
+
+	&[icon="moon"] {
+		.container {
+			background: #401D57;
+			.icon {
+				left: $container_width - $circle - $offset;
+				transform: translate(-50%, -50%) rotate(320deg);
+				filter: drop-shadow(0px 0px 1px white);
+				.circle {
+					box-shadow: 10px 5px 0px 0px white inset;
+				}
+			}
+		}
+	}
+}
