@@ -1,6 +1,5 @@
 import React from 'react';
 import './Menu.scss';
-import Themes from "../Themes/Themes"
 
 const b = document.body
 
@@ -33,7 +32,6 @@ function Menu() {
 	return (
 		<div id="menu">
 			<Hamburger />
-			<Themes />
 		</div>
 	);
 }

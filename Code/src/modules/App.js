@@ -23,8 +23,8 @@ function App() {
 	return (
 		<div id="app">
 			<Header />
-			<Menu />
 			<Content />
+			<Menu />
 			<DayNightSwitcher icon={icon}/>
 		</div>
 	);
