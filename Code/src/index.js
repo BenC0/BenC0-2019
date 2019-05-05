@@ -8,11 +8,9 @@ import * as serviceWorker from './serviceWorker';
 const routing = (
 	<Router>
 		<div>
-			<ul>
-				<li>
-					<Link to="/">Home</Link>
-				</li>
-			</ul>
+			<nav>
+				<Link to="/" className={(window.location.pathname === "/") ? "active" : ""}>Home</Link>
+			</nav>
 			<Route path="/" component={App} />
 		</div>
 	</Router>

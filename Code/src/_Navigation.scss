@@ -1,0 +1,40 @@
+@import "./modules/global";
+nav {
+	opacity: 0;
+	transition: $B-Transition;
+	display: flex;
+	flex-direction: column;
+
+	.showMenu & {
+		opacity: 1;
+	}
+
+	top: 150px;
+	left: 10vw;
+	z-index: 10;
+	position: absolute;
+	font-size: 8vh;
+	line-height: 10vh;
+
+	a {
+		[data-theme] &, [data-theme] &:visited {
+			color: $theme_2-font;
+
+			&:hover {
+				color: lighten($theme_2-font, 10%);
+			}
+		
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+
+			&.active {
+				color: lighten(#1a1a1a, 30%);
+
+				&:hover {
+					color: lighten(#1a1a1a, 50%);
+				}
+			}
+		}
+	}
+}
