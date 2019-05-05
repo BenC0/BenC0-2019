@@ -18,6 +18,15 @@ header {
 	width: ((100% - 20 ) * .85);
 	margin: 0px auto 10px;
 	transition: $globalTransition;
+	background-image: $primary_texture;
+	
+	@for $i from 1 through $number_of_themes {
+		$theme-bg: nth($theme-backgrounds, $i);
+
+		[data-theme="#{$i}"] & {
+			background-color: $theme_bg;
+		}
+	}
 
 	@media screen and (max-width: 710px) {
 		& {
@@ -60,6 +69,8 @@ header {
 	}
 
 	body[data-theme].showMenu & {
+		background-color: transparent;
+		
 		.logo {
 			color: $white;
 		}

@@ -19,11 +19,9 @@ export function MenuClick(event) {
 
 	if (show) {
 		menu.classList.add('active')
-		b.classList.remove('hideThemes')
 		b.classList.add('showMenu')
 	} else {
 		menu.classList.remove('active')
-		b.classList.add('hideThemes')
 		b.classList.remove('showMenu')
 	}
 }
