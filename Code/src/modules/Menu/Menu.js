@@ -13,7 +13,7 @@ function Hamburger() {
 	)
 }
 
-export function MenuClick(event) {
+function MenuClick(event) {
 	let show = !b.classList.contains('showMenu')
 	let menu = event.currentTarget
 
