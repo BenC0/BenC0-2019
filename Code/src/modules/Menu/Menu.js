@@ -3,16 +3,6 @@ import './Menu.scss';
 
 const b = document.body
 
-function Hamburger() {
-	return (
-		<div className="hamburger" onClick={MenuClick}>
-			<span className="line tLine"></span>
-			<span className="line mLine"></span>
-			<span className="line bLine"></span>
-		</div>
-	)
-}
-
 function MenuClick(event) {
 	let show = !b.classList.contains('showMenu')
 	let menu = event.currentTarget
@@ -24,6 +14,16 @@ function MenuClick(event) {
 		menu.classList.remove('active')
 		b.classList.remove('showMenu')
 	}
+}
+
+function Hamburger() {
+	return (
+		<div className="hamburger" onClick={MenuClick}>
+			<span className="line tLine"></span>
+			<span className="line mLine"></span>
+			<span className="line bLine"></span>
+		</div>
+	)
 }
 
 function Menu() {
