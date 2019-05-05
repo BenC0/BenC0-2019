@@ -56,17 +56,15 @@ header {
 		padding: 0px 20px 0px;
 		position: relative;
 		margin: 0;
+		transition: color $B-Transition--Timing;
 	}
 
 	body[data-theme].showMenu & {
 		.logo {
-			transition: color $B-Transition--Timing;
 			color: $white;
 		}
 
-		@include after_line($white) {
-			transition: $B-Transition;
-		}
+		@include after_line($white)
 	}
 
 	@for $i from 1 through $number_of_themes {
@@ -84,7 +82,9 @@ header {
 		$bol: nth($theme-backgrounds_dark, $i);
 		
 		body[data-theme="#{$i}"] & {
-			@include after_line($bol);
+			@include after_line($bol) {
+				transition: $B-Transition;
+			}
 		}
 	}
 }

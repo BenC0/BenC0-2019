@@ -56,7 +56,7 @@ body {
 		top: 0;
 		left: 0;
 		height: $b_h;
-		filter: drop-shadow(3px 0px 7px);
+		filter: drop-shadow(3px 0px 7px $theme_2-bg_dark);
 		border-top-right-radius: 100% 100%;
 		border-bottom-right-radius: 100% 100%;
 		transition: $B-Transition;
@@ -148,6 +148,11 @@ body {
 					color: $theme_font;
 				}
 			}
+		}
+	}
+	&[data-theme="2"].showMenu {
+		&:before {
+			filter: drop-shadow(3px 0px 7px $theme_2-font);
 		}
 	}
 }
