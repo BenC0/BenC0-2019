@@ -76,6 +76,9 @@ section {
 				clear: both;
 				display: block;
 				width: 100%;
+				&::before {
+					content: '- ';
+				}
 			}
 
 			.notes {

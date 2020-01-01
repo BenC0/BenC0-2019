@@ -1,20 +1,28 @@
 @import "./modules/global";
+
 nav {
 	opacity: 0;
 	transition: $B-Transition;
 	display: flex;
 	flex-direction: column;
 
+	body:not(.showMenu) & {
+		pointer-events: none;
+	}
+
 	.showMenu & {
 		opacity: 1;
 	}
 
-	top: 150px;
+	top: $header_h + 30;
 	left: 10vw;
+	bottom: 0;
 	z-index: 10;
-	position: absolute;
-	font-size: 8vh;
+	position: fixed;
+	font-size: 4vh;
 	line-height: 10vh;
+	overflow: auto;
+	right: -50px;
 
 	a {
 		[data-theme] &, [data-theme] &:visited {
@@ -29,10 +37,10 @@ nav {
 			}
 
 			&.active {
-				color: lighten(#1a1a1a, 30%);
+				color: darken($theme_2-font, 10%);
 
 				&:hover {
-					color: lighten(#1a1a1a, 50%);
+					color: darken($theme_2-font, 15%);
 				}
 			}
 		}
